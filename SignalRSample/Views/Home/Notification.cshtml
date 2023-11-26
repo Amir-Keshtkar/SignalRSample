@@ -11,11 +11,13 @@
 </style>
 
 <div class="container">
+    <input type="button" value="Send" onclick="send()" />
+
     <div class="row pt-3">
         <div class="col-6">
             <input type="text" class="form-control" id="notificationInput" autocomplete="off" />
         </div>
-        <div class="col-3">
+        <div class="col-3"> 
             <input type="button" class="btn btn-primary form-control" id="sendButton" value="Send Message" />
         </div>
     </div>
@@ -28,5 +30,5 @@
 </div>
 
 <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
-<script src="~/js/notification.js"></script>
+@*<script src="~/js/notification.js"></script>*@
 <script src="~/js/checkGhasedak.js"></script>
