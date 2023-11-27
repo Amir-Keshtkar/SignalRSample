@@ -10,12 +10,13 @@ var getBearerToken = () => "eyJhbGciOiJSUzI1NiIsImtpZCI6IkJCQ0VDMTA0QzA4NzQ0RjhG
 
 let connection = new signalR.HubConnectionBuilder()
     .withUrl(
+        //"http://test.ghasedak.me:5015/Notification",
         "http://test.ghasedak.me:7000/Notification/Notification",
         //"http://sms.ghasedak.me:7000/Notification/Notification",
         {
-            //accessTokenFactory = () => getBearerToken;
+            //accessTokenFactory: "How you doin???",
             withCredentials: true,
-            //accessTokenFactory = () => "eyJhbGciOiJSUzI1NiIsImtpZCI6IkYyMTA0QUIwODJBN0I1NzJGNDIyQzg5QzM1MkY2ODE4IiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MDAzODE1MzUsImV4cCI6MTcwMDM4NTEzNSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAxIiwiY2xpZW50X2lkIjoiVXNlcnMiLCJzdWIiOiI5IiwiYXV0aF90aW1lIjoxNzAwMzgxNTM1LCJpZHAiOiJsb2NhbCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiOSIsImZ1bGxOYW1lIjoi2KfZhduM2LEg2qnYtNiq2qnYp9ixIiwiZmlyc3ROYW1lIjoi2KfZhduM2LEiLCJsYXN0TmFtZSI6Itqp2LTYqtqp2KfYsSIsInBhcmVudElkIjoiMCIsInJvbGVUeXBlIjoiVXNlciIsInJvbGVOYW1lcyI6IlBhcmVudCIsImp0aSI6IkQ3OUI3MDYwNjY2RjY0Mjg0NjRCQzIxNTBCQjMzQjA2IiwiaWF0IjoxNzAwMzgxNTM1LCJzY29wZSI6WyJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsiY3VzdG9tIl19.HgEfhkvl2XgSo0vOJBvREDIN2QaONTQd8uv5m5Jr892hFXUWdcHw3UvrbBHKgjCPR8xoQQnduy8Z1n1MWemg9RTP1UCVwXv8f73RlHNMY6LQ-AyKQIsBGDS0-Q6Tz9UBN5nZSKmQNDKeIUM5bSZpB9V4bbw0ga6JfUksC7_oEEdUoQDzNYNaB1dnMUaiCZjf9Yhc8airgyfTr0sE_qEV9eYALiIk4jfGGgiOU3CwxDbnGtwBEKe0c5TJljqFZaQ3UYa2dLBiCBaYKBYnsIexlAVQMJ4entcyU9mCchZD7Qf88xzzqyKRLuvJ8pymR6_sTmAUZ0E095vkSkDBr17bvA";
+            //accessTokenFactory = () => "hello world"
         });
 var connectioncGhasedak;
 function login() {
@@ -93,8 +94,8 @@ function generateCaptcha() {
 
 }
 function fullfilled() {
-    connectioncGhasedak.on("NewNotification", (e) => console.log(e));
     console.log("Weeeeeeeeeeeeeeeeee connection successfully stablished with Ghasedak Hub ");
+    connectioncGhasedak.on("NewNotification", (e) => console.log(e));
     /*connectioncGhasedak.send();*/
 
     connectioncGhasedak.invoke("LoadNotifications").then((value) => {
@@ -125,7 +126,7 @@ function rejected() {
 
 function send() {
 
-    login();
+    //login();
     getUserProfile();
     //generateCaptcha();
 
